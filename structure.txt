@@ -1,0 +1,36 @@
+.
+├── app
+│   ├── api
+│   │   ├── routes.py
+│   │   └── twitter_client.py
+│   ├── core
+│   │   ├── config.py
+│   │   ├── rate_limiter.py
+│   │   └── validators.py
+│   ├── generator
+│   │   └── profile_writer.py
+│   ├── models
+│   │   └── user_profile.py
+│   └── nlp
+│       ├── preprocess.py
+│       ├── prompt_engine.py
+│       ├── sentiment_style.py
+│       └── topic_modeling.py
+├── assets
+├── Dockerfile
+├── main.py
+├── README.md
+├── requirements.txt
+├── runtime.txt
+├── scripts
+│   ├── profile_preview.py
+│   └── seed_example.py
+├── static
+├── structure.txt
+└── tests
+    ├── test_api.py
+    ├── test_nlp.py
+    ├── test_openai_key.py
+    └── test_X_bearer_token.py
+
+11 directories, 23 files
