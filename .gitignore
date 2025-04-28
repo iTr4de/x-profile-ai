@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+.venv 
+.venv/
+venv
+venv/
+ENV/
+env/
+
+# MacOS
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Cache
+.cache/
+*.sqlite3
+
+# Uvicorn logs
+*.pid
+
+# Models and NLP data
+*.bin
+*.h5
+
+# Huggingface cache (transformers models)
+~/.cache/huggingface/
+
+# Docker
+*.dockerfile
+docker-compose.yml
+
+# Runtime
+runtime.txt
+
+# Jupyter Notebooks (if added later)
+.ipynb_checkpoints/
+
+# Build
+build/
+dist/
+
+# Other
+*.db

@@ -1,0 +1,13 @@
+fastapi 
+uvicorn 
+httpx 
+openai 
+python-dotenv 
+pydantic 
+spacy 
+transformers 
+bertopic 
+umap-learn 
+hdbscan 
+scikit-learn
+torch
