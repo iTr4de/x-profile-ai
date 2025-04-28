@@ -35,60 +35,51 @@ Generates a two-line bio and mission summary from a user's top tweets, including
 
 ## How to Run
 
-```bash
+
 # 1. Clone
+```bash
 git clone https://github.com/brightntech/x-profile-ai.git && cd x-profile-ai
+```
 
 # 2. Add API keys
-cp .env.example .env
+TWITTER BEARER TOKEN + OPENAI API KEY
 
 # 3. Run server
+```bash
 docker build -t x-profile-ai .
 docker run -p 8000:8000 x-profile-ai
-
-Perfect!
-Here’s a professional README update you can copy into your README.md —
-it adds a clean “How to Update Project Structure” section for your structure.txt!
-
-⸻
-
-📄 Suggested Addition to README.md
+```
 
 ## 📂 Updating Project Structure Documentation
-
 To keep the `structure.txt` file up-to-date with the current project layout:
 
 ### 1. Make sure you are inside the project root:
-
 ```bash
 cd /path/to/x-profile-ai/
+```
 
 2. Run this command:
-
+```bash
 tree -I '.git|__pycache__|.venv|*.pyc|*.log' > structure.txt
-
+```
 ✅ This will:
 	•	Generate a clean directory structure.
 	•	Ignore unnecessary folders and files (e.g., .venv, __pycache__, .git/, etc.)
 	•	Save the output into structure.txt, updating the existing file.
 
 If you also want to see the structure live while updating, you can use:
-
+```bash
 tree -I '.git|__pycache__|.venv|*.pyc|*.log' | tee structure.txt
-
+```
 3. After updating, commit the changes:
-
+```bash
 git add structure.txt
 git commit -m "Update project structure documentation"
 git push
-
+```
 📢 Note:
 
-If the tree command is not available, install it:
-	•	macOS: brew install tree
-	•	Ubuntu: sudo apt install tree
-	•	Windows: Install Git Bash and use tree
-
-⸻
-
-✅ Keeping structure.txt updated ensures the repo stays clean, transparent, and developer-friendly.
+If the tree command is not available, install it:  
+	•	macOS: brew install tree  
+	•	Ubuntu: sudo apt install tree  
+	•	Windows: Install Git Bash and use tree  
