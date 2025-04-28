@@ -1,5 +1,9 @@
 # X-Profile AI
 
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/fastapi-powered-brightgreen)
+![License](https://img.shields.io/badge/license-proprietary-red)
+
 **AI-powered Profile Generator from Public Twitter (X) Data**
 
 Generates a two-line bio and mission summary from a user's top tweets, including dominant themes, tone, and engagement signals. Ideal for influencer analysis, digital legacy, and personal branding.
@@ -24,3 +28,73 @@ cp .env.example .env
 # 3. Run server
 docker build -t x-profile-ai .
 docker run -p 8000:8000 x-profile-ai
+
+Perfect!
+Here’s a professional README update you can copy into your README.md —
+it adds a clean “How to Update Project Structure” section for your structure.txt!
+
+⸻
+
+📄 Suggested Addition to README.md
+
+## 📂 Updating Project Structure Documentation
+
+To keep the `structure.txt` file up-to-date with the current project layout:
+
+### 1. Make sure you are inside the project root:
+
+```bash
+cd /path/to/x-profile-ai/
+
+2. Run this command:
+
+tree -I '.git|__pycache__|.venv|*.pyc|*.log' > structure.txt
+
+✅ This will:
+	•	Generate a clean directory structure.
+	•	Ignore unnecessary folders and files (e.g., .venv, __pycache__, .git/, etc.)
+	•	Save the output into structure.txt, updating the existing file.
+
+If you also want to see the structure live while updating, you can use:
+
+tree -I '.git|__pycache__|.venv|*.pyc|*.log' | tee structure.txt
+
+3. After updating, commit the changes:
+
+git add structure.txt
+git commit -m "Update project structure documentation"
+git push
+
+📢 Note:
+
+If the tree command is not available, install it:
+	•	macOS: brew install tree
+	•	Ubuntu: sudo apt install tree
+	•	Windows: Install Git Bash and use tree
+
+⸻
+
+✅ Keeping structure.txt updated ensures the repo stays clean, transparent, and developer-friendly.
+
+---
+
+# 📦 Where to Insert It?
+- Ideally **at the bottom** of your `README.md`
+- Right **before** or **after** sections like **License** or **Contributing**
+
+---
+
+# 🎯 After Adding This:
+- New developers immediately know how to regenerate structure files.
+- Your repo looks **professional and organized**.
+- Maintains full traceability as you scale features.
+
+---
+
+# 📣 Would you also like me next to propose:
+
+- A **standard Contributing.md** (if someone else wants to help build the project)?
+- Or **small GitHub issue templates** (like "Bug Report" / "Feature Request")?
+
+Type "**Yes Contributing!**" or "**Yes GitHub templates!**" 🚀  
+_(Very fast to generate, and helps when you open-source or collaborate!)_
