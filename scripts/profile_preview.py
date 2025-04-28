@@ -7,7 +7,7 @@ API_URL = "http://127.0.0.1:8000/api/profile/"
 
 async def main():
     payload = {
-        "username": "pierrebruynaud",  # Or another public Twitter user
+        "username": "elonmusk",  # Or another public Twitter user
         "tone": "Visionary Leader",
         "tweet_limit": 10,        # << Reduced to 10 to avoid 429 errors
         "language": "en"
