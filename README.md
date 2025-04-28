@@ -8,6 +8,23 @@
 
 Generates a two-line bio and mission summary from a user's top tweets, including dominant themes, tone, and engagement signals. Ideal for influencer analysis, digital legacy, and personal branding.
 
+## ⚠️ Important: Twitter API (X) Subscription Requirement
+
+> **Note:** Profiling real Twitter (X) users requires a paid API subscription (Basic or higher).
+> 
+> - Free Twitter Developer accounts **only allow posting tweets**, not reading user tweets.
+> - To fetch public tweets (needed for generating profiles), you must have **Basic Tier Access** ($100/month).
+> - Without a subscription, the app can still operate in **Mock Mode** using simulated tweets for testing purposes.
+
+## Features
+- Twitter API v2 integration
+- BERTopic for tweet theme clustering
+- ...
+
+**AI-powered Profile Generator from Public Twitter (X) Data**
+
+Generates a two-line bio and mission summary from a user's top tweets, including dominant themes, tone, and engagement signals. Ideal for influencer analysis, digital legacy, and personal branding.
+
 ## Features
 - Twitter API v2 integration
 - BERTopic for tweet theme clustering

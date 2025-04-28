@@ -4,6 +4,7 @@ import os
 import openai
 import logging
 
+from openai import AsyncOpenAI
 from app.api.twitter_client import fetch_user_tweets
 from app.nlp.preprocess import preprocess_tweets
 from app.nlp.topic_modeling import extract_topics
@@ -43,14 +44,16 @@ async def generate_profile(data: ProfileRequest) -> ProfileResponse:
         )
 
         # Step 6: Query GPT
-        response = openai.ChatCompletion.create(
-            model="gpt-4",  # You can downgrade to "gpt-3.5-turbo" for cost savings
+        client = AsyncOpenAI()
+
+        response = await client.chat.completions.create(
+            model="gpt-4",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.7,
             max_tokens=600,
         )
 
-        generated_text = response["choices"][0]["message"]["content"]
+        generated_text = response.choices[0].message.content
 
         # Step 7: Parse GPT Output
         bio, mission = parse_gpt_output(generated_text)
