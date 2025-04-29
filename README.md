@@ -104,13 +104,13 @@ hdbscan
 scikit-learn
 torch
 ```
-Additional optional tools:
+Additional options:
 ```bash
 huggingface-hub  # if deploying on HF Spaces
-```
-✅ These power the NLP stack (spaCy, BERTopic, Transformers) and the FastAPI backend.
 
-⸻
+python-3.11.11 # as runtime.txt
+```
+These power the NLP stack (spaCy, BERTopic, Transformers) and the FastAPI backend.
 
 ## 🔥 7. Start the API Server
 ```bash
@@ -151,7 +151,8 @@ app.include_router(profile_router, prefix="/api/profile")
 ```
 Or symlink/rename main.py → app.py as needed.
 
-✅ Hugging Face setup  
+**Hugging Face** setup  
+
 	•	Use “FastAPI” as your Space SDK  
 	•	Set OPENAI_API_KEY and TWITTER_BEARER_TOKEN in the “Secrets” tab  
 	•	Push the repo, it will auto-deploy.  
@@ -169,8 +170,6 @@ Profile generation still works with:
 
 ✅ Fully testable even without live Twitter access.
 
-⸻
-
 ## 📌 Summary: Start Checklist
 
 ``` bash 
@@ -182,9 +181,8 @@ python scripts/profile_preview.py # Test CLI in other terminal
 
 http://localhost:8000/docs # Check docs	
 ```
----
 
-## recap
+# recap
 
 ## 📂 Updating Project Structure Documentation
 To keep the `structure.txt` file up-to-date with the current project layout
