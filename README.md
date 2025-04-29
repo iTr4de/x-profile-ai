@@ -33,99 +33,63 @@ Generates a two-line bio and mission summary from a user's top tweets, including
 - Streamlit or React frontend (coming soon)
 - Dockerized & scalable
 
-## How to Run
+# How to Run
 
 
-# 1. Clone
+## 1. Clone
 ```bash
 git clone https://github.com/brightntech/x-profile-ai.git && cd x-profile-ai
 ```
 
-# 2. Add API keys
+## 2. Add API keys
 TWITTER BEARER TOKEN + OPENAI API KEY
 
-# 3. Run server
+## 3. Run server
 ```bash
 docker build -t x-profile-ai .
 docker run -p 8000:8000 x-profile-ai
 ```
 
-## 📂 Updating Project Structure Documentation
-To keep the `structure.txt` file up-to-date with the current project layout:
+### 
 
-### 1. Make sure you are inside the project root:
+# 🚀 X-Profile AI: Detailed Launch & Deployment Guide
+
+## 1. Clone your repo
 ```bash
-cd /path/to/x-profile-ai/
-```
-
-2. Run this command:
-```bash
-tree -I '.git|__pycache__|.venv|*.pyc|*.log' > structure.txt
-```
-✅ This will:
-	•	Generate a clean directory structure.
-	•	Ignore unnecessary folders and files (e.g., .venv, __pycache__, .git/, etc.)
-	•	Save the output into structure.txt, updating the existing file.
-
-If you also want to see the structure live while updating, you can use:
-```bash
-tree -I '.git|__pycache__|.venv|*.pyc|*.log' | tee structure.txt
-```
-3. After updating, commit the changes:
-```bash
-git add structure.txt
-git commit -m "Update project structure documentation"
-git push
-```
-📢 Note:
-
-If the tree command is not available, install it:  
-	•	macOS: brew install tree  
-	•	Ubuntu: sudo apt install tree  
-	•	Windows: Install Git Bash and use tree  
-
-Absolutely! Here’s your full launch checklist for your x-profile-ai app — including how to start it, required libraries, and considerations for deploying it to a space server (Hugging Face Spaces or other cloud infra).
-
-⸻
-
-🚀 X-Profile AI: Launch & Deployment Guide
-
-⸻
-
-✅ 1. Local Startup Process
-
-💻 Step-by-Step to Run Locally:
-
-# 1. Clone your repo
 git clone https://github.com/your-username/x-profile-ai.git
 cd x-profile-ai
+```
 
-# 2. Create virtual environment
+## 2. Create virtual environment
+```bash
 python3 -m venv venv
 source venv/bin/activate   # or `venv\Scripts\activate` on Windows
-
-# 3. Install dependencies
+```
+## 3. Install dependencies
+```bash
 pip install -r requirements.txt
-
-# 4. Download spaCy English model
+```
+## 4. Download spaCy English model
+```bash
 python -m spacy download en_core_web_sm
-
-# 5. Create .env file
+```
+## 5. Create .env file
+```bash
 touch .env
-
+```
 Add this to .env:
-
-OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```bash
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxx  
 TWITTER_BEARER_TOKEN=AAAAAAAAAAAAAAAAAAAAAxxxxxx
+```
+⚠️ Reminder: Twitter Free API can’t fetch tweets — either mock data or upgrade to billable Basic API
 
-⚠️ Reminder: Twitter Free API can’t fetch tweets — either mock data or upgrade to Basic API ($100/month)
 
-⸻
 
-📦 2. Required Python Libraries
+## 6. Required Python Libraries
 
 Here’s your requirements.txt essentials:
-
+```bash
 fastapi
 uvicorn
 httpx
@@ -139,48 +103,41 @@ umap-learn
 hdbscan
 scikit-learn
 torch
-
+```
 Additional optional tools:
-
+```bash
 huggingface-hub  # if deploying on HF Spaces
-
+```
 ✅ These power the NLP stack (spaCy, BERTopic, Transformers) and the FastAPI backend.
 
 ⸻
 
-🔥 3. Start the API Server
-
+## 🔥 7. Start the API Server
+```bash
 uvicorn main:app --reload
-
-Access it locally:
-
+```
+### Access it locally:
+```bash
 http://127.0.0.1:8000/docs
-
-CLI test it from another terminal:
-
+```
+###  CLI test it from another terminal:
+```bash
 python scripts/profile_preview.py
+```
 
-
-
-⸻
-
-🌐 4. Deploying to Hugging Face Spaces (or other cloud)
+## 8. Deploying to Hugging Face Spaces (or other cloud)
 
 If you want to deploy this as an API backend in the cloud (like on Hugging Face Spaces or Render), here are the specifics:
 
 🛰 Hugging Face Spaces (FastAPI mode):
+```bash
+Create these 2 files: requirements.txt + app.py
+```
 
-Create these 2 files:
+This will serve as entry for Spaces (Spaces doesn’t use **main.py** by default):
 
-requirements.txt
-
-(Already handled above ✅)
-
-app.py
-
-This will serve as entry for Spaces (Spaces doesn’t use main.py by default):
-
-# app.py (for Hugging Face Space)
+### app.py (for Hugging Face Space)
+```bash
 from fastapi import FastAPI
 from app.api.routes import router as profile_router
 
@@ -191,35 +148,74 @@ def root():
     return {"message": "Welcome to X-Profile AI - powered by FastAPI"}
 
 app.include_router(profile_router, prefix="/api/profile")
-
+```
 Or symlink/rename main.py → app.py as needed.
 
-✅ Hugging Face setup
-	•	Use “FastAPI” as your Space SDK
-	•	Set OPENAI_API_KEY and TWITTER_BEARER_TOKEN in the “Secrets” tab
-	•	Push the repo, it will auto-deploy.
+✅ Hugging Face setup  
+	•	Use “FastAPI” as your Space SDK  
+	•	Set OPENAI_API_KEY and TWITTER_BEARER_TOKEN in the “Secrets” tab  
+	•	Push the repo, it will auto-deploy.  
 
-⸻
 
-🧪 5. Mock Mode for Local Testing
+## 🧪 9. Mock Mode for Local Testing
 
-If you don’t have Twitter Basic API:
-	•	Your backend will automatically fall back to mocked tweets
-	•	Profile generation still works with:
-	•	Sentiment
-	•	Topic modeling
-	•	GPT-powered bio creation
+If you don’t have Twitter Basic API:  
+	•	Your backend will automatically fall back to mocked tweets  
+
+Profile generation still works with:  
+		•	Sentiment  
+		•	Topic modeling  
+		•	GPT-powered bio creation  
 
 ✅ Fully testable even without live Twitter access.
 
 ⸻
 
-📌 Summary: Start Checklist
+## 📌 Summary: Start Checklist
 
-Step	Command
-Create env	python3 -m venv venv
-Activate	source venv/bin/activate
-Install deps	pip install -r requirements.txt
-Run server	uvicorn main:app --reload
-Test CLI	python scripts/profile_preview.py
-Check docs	http://localhost:8000/docs
+``` bash 
+python3 -m venv venv # Create env	
+venv/bin/activate # Activate source 
+pip install -r requirements.txt # Install deps	
+uvicorn main:app --reload # Run server in main terminal
+python scripts/profile_preview.py # Test CLI in other terminal	
+
+http://localhost:8000/docs # Check docs	
+```
+---
+
+## recap
+
+## 📂 Updating Project Structure Documentation
+To keep the `structure.txt` file up-to-date with the current project layout
+
+1. Make sure you are inside the project root:
+```bash
+cd /path/to/x-profile-ai/
+```
+
+2. Run this command:
+```bash
+tree -I '.git|__pycache__|.venv|*.pyc|*.log' > structure.txt
+```
+3. This will:  
+	•	Generate a clean directory structure.  
+	•	Ignore unnecessary folders and files (e.g., .venv, __pycache__, .git/, etc.)  
+	•	Save the output into structure.txt, updating the existing file.  
+
+If you also want to see the structure live while updating, you can use:
+```bash
+tree -I '.git|__pycache__|.venv|*.pyc|*.log' | tee structure.txt
+```
+4. After updating, commit the changes:
+```bash
+git add structure.txt
+git commit -m "Update project structure documentation"
+git push
+```
+📢 Note:
+
+If the tree command is not available, install it:  
+	•	macOS: brew install tree  
+	•	Ubuntu: sudo apt install tree  
+	•	Windows: Install Git Bash and use tree  
