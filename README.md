@@ -217,3 +217,25 @@ If the tree command is not available, install it:
 	•	macOS: brew install tree  
 	•	Ubuntu: sudo apt install tree  
 	•	Windows: Install Git Bash and use tree  
+
+# 🪪 License
+
+**Proprietary Software**
+
+This software is the exclusive property of **BrightNTech.AI by 7Milestone**.
+
+All rights reserved. Unauthorized reproduction, distribution, or modification of any part of this software is strictly prohibited without prior written consent from **7Milestone**.
+
+### Trademarks & Ownership
+
+- **BrightNTech.AI by 7Milestone** is a registered trademark of **7Milestone**, the parent consulting corporation.
+- **X-Profile AI | by BrightNTech.AI** is a proprietary application and trademark of **BrightNTech.AI by 7Milestone**.
+
+All trademarks, service marks, and trade names are the property of **7Milestone** and may not be used without express permission.
+
+## Contact
+
+For business inquiries, licensing, or partnership opportunities, please reach out via:
+
+**LinkedIn**: [https://www.linkedin.com/company/brightentech/](https://www.linkedin.com/company/brightentech/)
+
